@@ -1,1 +1,2 @@
-# python-pong
+# Python Game
+quick, simple python pong game 
