@@ -36,6 +36,16 @@ ball.color("white")
 ball.penup()
 ball.goto(0, 0)
 
+#game function
+def paddle_a_up():
+    y = paddle_a.ycor()
+    y += 20
+    paddle_a.sety(y) #sets paddle to the new y coordinate  
+
+#keyboard binding
+wn.listen()
+wn.onkeypress(paddle_a_up, "w")
+
 #main game loop
 while True:
     wn.update()
