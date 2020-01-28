@@ -35,8 +35,8 @@ ball.shape("square")
 ball.color("white")
 ball.penup()
 ball.goto(0, 0)
-ball.dx = .115 #ball speed for x position
-ball.dy = .115 #ball speed for y position
+ball.dx = .14 #ball speed for x position
+ball.dy = .14 #ball speed for y position
 
 #game function
 def paddle_a_up():
@@ -84,9 +84,18 @@ while True:
         ball.dy *= -1 #reverses direction
 
     if ball.xcor() > 390:
-        ball.setx(390) #if ball hits right side of window
+        ball.goto(0, 0) #if ball hits right side of window, goes back to center
         ball.dx *= -1 #reverses direction
 
     if ball.xcor() < -390:
-        ball.setx(-390) #if ball hits right side of window
+        ball.goto(0, 0) #if ball hits left side of window, goes back to center
         ball.dx *= -1 #reverses direction
+    
+    #paddle and ball collisions
+    if (ball.xcor() > 340 and ball.xcor() < 350 and (ball.ycor() < paddle_b.ycor() + 50 and ball.ycor() > paddle_b.ycor() -50)):
+        ball.setx(340)
+        ball.dx *= -1 
+
+    if (ball.xcor() < -340 and ball.xcor() > -350 and (ball.ycor() < paddle_a.ycor() + 50 and ball.ycor() > paddle_a.ycor() -50)):
+        ball.setx(-340)
+        ball.dx *= -1 
