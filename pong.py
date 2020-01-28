@@ -35,6 +35,8 @@ ball.shape("square")
 ball.color("white")
 ball.penup()
 ball.goto(0, 0)
+ball.dx = .115 #ball speed for x position
+ball.dy = .115 #ball speed for y position
 
 #game function
 def paddle_a_up():
@@ -67,3 +69,7 @@ wn.onkeypress(paddle_b_down, "Down")
 #main game loop
 while True:
     wn.update()
+
+    #Move the ball
+    ball.setx(ball.xcor() + ball.dx)
+    ball.sety(ball.ycor() + ball.dy)
