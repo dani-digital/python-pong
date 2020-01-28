@@ -42,9 +42,15 @@ def paddle_a_up():
     y += 20
     paddle_a.sety(y) #sets paddle to the new y coordinate  
 
+def paddle_a_down():
+    y = paddle_a.ycor()
+    y -= 20
+    paddle_a.sety(y)
+
 #keyboard binding
 wn.listen()
 wn.onkeypress(paddle_a_up, "w")
+wn.onkeypress(paddle_a_down, "s")
 
 #main game loop
 while True:
