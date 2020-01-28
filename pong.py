@@ -73,3 +73,20 @@ while True:
     #Move the ball
     ball.setx(ball.xcor() + ball.dx)
     ball.sety(ball.ycor() + ball.dy)
+
+    #Border Checking
+    if ball.ycor() > 290:
+        ball.sety(290) #if ball hits top of window
+        ball.dy *= -1 #reverses direction
+    
+    if ball.ycor() < -290:
+        ball.sety(-290) #if ball hits bottom of window
+        ball.dy *= -1 #reverses direction
+
+    if ball.xcor() > 390:
+        ball.setx(390) #if ball hits right side of window
+        ball.dx *= -1 #reverses direction
+
+    if ball.xcor() < -390:
+        ball.setx(-390) #if ball hits right side of window
+        ball.dx *= -1 #reverses direction
